@@ -20,21 +20,19 @@ class GildedRose {
 
     public void updateQuality() {
         for (Item item : items) {
-            TypedItem typedItem = new TypedItem(item);
+            EnhancedItem enhancedItem = new EnhancedItem(item);
 
-            item.quality = getNextQuality(typedItem);
-            // Only update SellIn after quality has been processed, as it influences the quality determination
-            item.sellIn = getNextSellIn(typedItem);
+            item.quality = getNextQuality(enhancedItem);
+            item.sellIn = getNextSellIn(enhancedItem);
         }
     }
 
-    private int getNextQuality(TypedItem typedItem) {
-        Item item = typedItem.item();
+    private int getNextQuality(EnhancedItem item) {
 
         int passedSellInMultiplier = item.sellIn <= 0 ? 2 : 1;
-        int conjuredMultiplier = typedItem.isConjured ? 2 : 1;
+        int conjuredMultiplier = item.isConjured ? 2 : 1;
 
-        int newQuality = switch (typedItem.type()) {
+        int newQuality = switch (item.type()) {
             case NORMAL -> item.quality + NORMAL_DEGRADATION * passedSellInMultiplier * conjuredMultiplier;
             case AGED_BRIE -> item.quality + AGED_BRIE_DEGRADATION * passedSellInMultiplier * conjuredMultiplier;
             case BACKSTAGE_PASS -> getNextBackStageQuality(item, conjuredMultiplier);
@@ -42,7 +40,7 @@ class GildedRose {
         };
 
         // Sulfuras its quality never alters -- returning before applying min/max limiting
-        if (typedItem.type() == Type.SULFURAS) {
+        if (item.type() == Type.SULFURAS) {
             return newQuality;
         }
 
@@ -50,7 +48,7 @@ class GildedRose {
         return Integer.min(Integer.max(MIN_QUALITY, newQuality), MAX_QUALITY);
     }
 
-    private int getNextBackStageQuality(Item item, int conjuredMultiplier) {
+    private int getNextBackStageQuality(EnhancedItem item, int conjuredMultiplier) {
         int qualityModifier;
 
         if (item.sellIn <= 0) {
@@ -78,29 +76,30 @@ class GildedRose {
         // };
     }
 
-    private int getNextSellIn(TypedItem typedItem) {
-        if (typedItem.type() == Type.SULFURAS) {
-            return typedItem.item().sellIn;
+    private int getNextSellIn(EnhancedItem item) {
+        if (item.type() == Type.SULFURAS) {
+            return item.sellIn;
         }
 
-        return typedItem.item().sellIn - 1;
+        return item.sellIn - 1;
     }
 
     /**
      * Convenience record, that can determine type once and group it with original item.
      *
-     * @param item       Item that is to be processed
+     * @param quality    Item quality value
+     * @param sellIn     Item sellIn counter
      * @param type       Item type matching the provided item
      * @param isConjured Boolean indicating if the item is conjured or not
      */
-    private record TypedItem(Item item, Type type, boolean isConjured) {
+    private record EnhancedItem(int quality, int sellIn, Type type, boolean isConjured) {
         /**
-         * Convenience record that can determine type of provide item itself.
+         * Convenience record that converts an {@link Item} into a {@link EnhancedItem}.
          *
          * @param item Item that is to be processed
          */
-        private TypedItem(Item item) {
-            this(item, getItemType(item), isItemConjured(item));
+        private EnhancedItem(Item item) {
+            this(item.quality, item.sellIn, getItemType(item), isItemConjured(item));
         }
 
         private static Type getItemType(Item item) {
