@@ -251,8 +251,6 @@ class GildedRoseTest {
     //endregion
 
     //region Conjured Items Tests
-    // TODO[Bart]: Can Conjured items act like a modifier on any item (normal, brie, backstage pass, ...)?
-
     @Test
     void conjuredItemsDegradeInQualityTwiceAsFastBeforeSellDate() {
         // Given
@@ -273,6 +271,59 @@ class GildedRoseTest {
         assertThat(app.items[2]).hasQuality(6);
         assertThat(app.items[3]).hasQuality(6);
     }
+
+    @Test
+    void itemCanBeConjuredOnlyOnce() {
+        // Given
+        Item[] items = new Item[]{
+            new Item("Conjured Conjured Mana Cake", 5, 10),
+            new Item("Conjured Conjured Mana Cake", 1, 10),
+            new Item("Conjured Conjured Mana Cake", 0, 10),
+            new Item("Conjured Conjured Mana Cake", -1, 10)
+        };
+        GildedRose app = new GildedRose(items);
+
+        // When
+        app.updateQuality();
+
+        // Then
+        assertThat(app.items[0]).hasQuality(8);
+        assertThat(app.items[1]).hasQuality(8);
+        assertThat(app.items[2]).hasQuality(6);
+        assertThat(app.items[3]).hasQuality(6);
+    }
+
+    @Test
+    void conjuredCanModifyDifferentItemTypes() {
+        // Given
+        Item[] items = new Item[]{
+            new Item("Conjured +5 Dexterity Vest", 10, 10),
+            new Item("Conjured Aged Brie", 2, 10),
+            new Item("Conjured Aged Brie", 0, 10),
+            new Item("Conjured Elixir of the Mongoose", 5, 10),
+            new Item("Conjured Sulfuras, Hand of Ragnaros", 0, 80),
+            new Item("Conjured Backstage passes to a TAFKAL80ETC concert", 15, 10),
+            new Item("Conjured Backstage passes to a TAFKAL80ETC concert", 10, 10),
+            new Item("Conjured Backstage passes to a TAFKAL80ETC concert", 5, 10),
+            new Item("Conjured Backstage passes to a TAFKAL80ETC concert", 0, 10),
+        };
+        GildedRose app = new GildedRose(items);
+
+        // When
+        app.updateQuality();
+
+        // Then
+        assertThat(app.items[0]).hasQuality(8);
+        assertThat(app.items[1]).hasQuality(12);
+        assertThat(app.items[2]).hasQuality(14);
+        assertThat(app.items[3]).hasQuality(8);
+        assertThat(app.items[4]).hasQuality(80); // Quality of Sulfuras never changes
+        assertThat(app.items[5]).hasQuality(12);
+        assertThat(app.items[6]).hasQuality(14);
+        assertThat(app.items[7]).hasQuality(16);
+        assertThat(app.items[8]).hasQuality(0);
+    }
+
     //endregion
 
     //region General quality Tests
