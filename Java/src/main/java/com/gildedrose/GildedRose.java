@@ -70,9 +70,9 @@ class GildedRose {
         //
         // return switch (item.sellIn) {
         //     case int sellIn when sellIn <= 0 -> 0;
-        //     case int sellIn when sellIn <= 5 -> item.quality + NORMAL_DEGRADATION * 3 * conjuredMultiplier;
-        //     case int sellIn when sellIn <= 10 -> item.quality + NORMAL_DEGRADATION * 2 * conjuredMultiplier;
-        //     case int _ -> item.quality + NORMAL_DEGRADATION * conjuredMultiplier;
+        //     case int sellIn when sellIn <= 5 -> item.quality + BACKSTAGE_PASS_BASE_DEGRADATION * 3 * conjuredMultiplier;
+        //     case int sellIn when sellIn <= 10 -> item.quality + BACKSTAGE_PASS_BASE_DEGRADATION * 2 * conjuredMultiplier;
+        //     case int _ -> item.quality + BACKSTAGE_PASS_BASE_DEGRADATION * conjuredMultiplier;
         // };
     }
 
