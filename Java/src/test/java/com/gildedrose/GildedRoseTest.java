@@ -20,8 +20,8 @@ class GildedRoseTest {
         app.updateQuality();
 
         // Then
-        assertThat(app.items[0]).hasSellIn(4).hasQuality(9);
-        assertThat(app.items[1]).hasSellIn(0).hasQuality(9);
+        assertThat(items[0]).hasSellIn(4).hasQuality(9);
+        assertThat(items[1]).hasSellIn(0).hasQuality(9);
     }
 
     @Test
@@ -37,8 +37,8 @@ class GildedRoseTest {
         app.updateQuality();
 
         // Then
-        assertThat(app.items[0]).hasSellIn(-1).hasQuality(8);
-        assertThat(app.items[1]).hasSellIn(-2).hasQuality(8);
+        assertThat(items[0]).hasSellIn(-1).hasQuality(8);
+        assertThat(items[1]).hasSellIn(-2).hasQuality(8);
     }
 
     @Test
@@ -55,9 +55,9 @@ class GildedRoseTest {
         app.updateQuality();
 
         // Then
-        assertThat(app.items[0]).hasSellIn(0).hasQuality(0);
-        assertThat(app.items[1]).hasSellIn(-1).hasQuality(0);
-        assertThat(app.items[2]).hasSellIn(-2).hasQuality(0);
+        assertThat(items[0]).hasSellIn(0).hasQuality(0);
+        assertThat(items[1]).hasSellIn(-1).hasQuality(0);
+        assertThat(items[2]).hasSellIn(-2).hasQuality(0);
     }
     //endregion
 
@@ -73,7 +73,7 @@ class GildedRoseTest {
         app.updateQuality();
 
         // Then
-        assertThat(app.items[0]).hasSellIn(4).hasQuality(11);
+        assertThat(items[0]).hasSellIn(4).hasQuality(11);
     }
 
     @Test
@@ -86,7 +86,7 @@ class GildedRoseTest {
         app.updateQuality();
 
         // Then
-        assertThat(app.items[0]).hasSellIn(-1).hasQuality(12);
+        assertThat(items[0]).hasSellIn(-1).hasQuality(12);
     }
 
     @Test
@@ -102,8 +102,8 @@ class GildedRoseTest {
         app.updateQuality();
 
         // Then
-        assertThat(app.items[0]).hasSellIn(4).hasQuality(50);
-        assertThat(app.items[1]).hasSellIn(-1).hasQuality(50);
+        assertThat(items[0]).hasSellIn(4).hasQuality(50);
+        assertThat(items[1]).hasSellIn(-1).hasQuality(50);
     }
     //endregion
 
@@ -123,9 +123,9 @@ class GildedRoseTest {
         app.updateQuality();
 
         // Then
-        assertThat(app.items[0]).hasQuality(80);
-        assertThat(app.items[1]).hasQuality(80);
-        assertThat(app.items[2]).hasQuality(80);
+        assertThat(items[0]).hasQuality(80);
+        assertThat(items[1]).hasQuality(80);
+        assertThat(items[2]).hasQuality(80);
     }
 
     @Test
@@ -142,9 +142,9 @@ class GildedRoseTest {
         app.updateQuality();
 
         // Then
-        assertThat(app.items[0]).hasSellIn(1);
-        assertThat(app.items[1]).hasSellIn(0);
-        assertThat(app.items[2]).hasSellIn(-1);
+        assertThat(items[0]).hasSellIn(1);
+        assertThat(items[1]).hasSellIn(0);
+        assertThat(items[2]).hasSellIn(-1);
     }
     //endregion
 
@@ -163,8 +163,8 @@ class GildedRoseTest {
         app.updateQuality();
 
         // Then
-        assertThat(app.items[0]).hasSellIn(14).hasQuality(21);
-        assertThat(app.items[1]).hasSellIn(10).hasQuality(21);
+        assertThat(items[0]).hasSellIn(14).hasQuality(21);
+        assertThat(items[1]).hasSellIn(10).hasQuality(21);
     }
 
     @Test
@@ -183,11 +183,11 @@ class GildedRoseTest {
         app.updateQuality();
 
         // Then
-        assertThat(app.items[0]).hasSellIn(9).hasQuality(22);
-        assertThat(app.items[1]).hasSellIn(8).hasQuality(22);
-        assertThat(app.items[2]).hasSellIn(7).hasQuality(22);
-        assertThat(app.items[3]).hasSellIn(6).hasQuality(22);
-        assertThat(app.items[4]).hasSellIn(5).hasQuality(22);
+        assertThat(items[0]).hasSellIn(9).hasQuality(22);
+        assertThat(items[1]).hasSellIn(8).hasQuality(22);
+        assertThat(items[2]).hasSellIn(7).hasQuality(22);
+        assertThat(items[3]).hasSellIn(6).hasQuality(22);
+        assertThat(items[4]).hasSellIn(5).hasQuality(22);
     }
 
     @Test
@@ -206,11 +206,11 @@ class GildedRoseTest {
         app.updateQuality();
 
         // Then
-        assertThat(app.items[0]).hasSellIn(4).hasQuality(23);
-        assertThat(app.items[1]).hasSellIn(3).hasQuality(23);
-        assertThat(app.items[2]).hasSellIn(2).hasQuality(23);
-        assertThat(app.items[3]).hasSellIn(1).hasQuality(23);
-        assertThat(app.items[4]).hasSellIn(0).hasQuality(23);
+        assertThat(items[0]).hasSellIn(4).hasQuality(23);
+        assertThat(items[1]).hasSellIn(3).hasQuality(23);
+        assertThat(items[2]).hasSellIn(2).hasQuality(23);
+        assertThat(items[3]).hasSellIn(1).hasQuality(23);
+        assertThat(items[4]).hasSellIn(0).hasQuality(23);
     }
 
     @Test
@@ -229,11 +229,11 @@ class GildedRoseTest {
         app.updateQuality();
 
         // Then
-        assertThat(app.items[0]).hasQuality(50);
-        assertThat(app.items[1]).hasQuality(50);
-        assertThat(app.items[2]).hasQuality(50);
-        assertThat(app.items[3]).hasQuality(50);
-        assertThat(app.items[4]).hasQuality(50);
+        assertThat(items[0]).hasQuality(50);
+        assertThat(items[1]).hasQuality(50);
+        assertThat(items[2]).hasQuality(50);
+        assertThat(items[3]).hasQuality(50);
+        assertThat(items[4]).hasQuality(50);
     }
 
     @Test
@@ -246,7 +246,7 @@ class GildedRoseTest {
         app.updateQuality();
 
         // Then
-        assertThat(app.items[0]).hasSellIn(-1).hasQuality(0);
+        assertThat(items[0]).hasSellIn(-1).hasQuality(0);
     }
     //endregion
 
@@ -268,10 +268,10 @@ class GildedRoseTest {
         app.updateQuality();
 
         // Then
-        assertThat(app.items[0]).hasQuality(8);
-        assertThat(app.items[1]).hasQuality(8);
-        assertThat(app.items[2]).hasQuality(6);
-        assertThat(app.items[3]).hasQuality(6);
+        assertThat(items[0]).hasQuality(8);
+        assertThat(items[1]).hasQuality(8);
+        assertThat(items[2]).hasQuality(6);
+        assertThat(items[3]).hasQuality(6);
     }
     //endregion
 
@@ -294,12 +294,12 @@ class GildedRoseTest {
         app.updateQuality();
 
         // Then
-        assertThat(app.items[0]).hasQuality(49);
-        assertThat(app.items[1]).hasQuality(50);
-        assertThat(app.items[2]).hasQuality(49);
-        assertThat(app.items[3]).hasQuality(80); // Quality of Sulfuras never changes
-        assertThat(app.items[4]).hasQuality(50);
-        assertThat(app.items[5]).hasQuality(48);
+        assertThat(items[0]).hasQuality(49);
+        assertThat(items[1]).hasQuality(50);
+        assertThat(items[2]).hasQuality(49);
+        assertThat(items[3]).hasQuality(80); // Quality of Sulfuras never changes
+        assertThat(items[4]).hasQuality(50);
+        assertThat(items[5]).hasQuality(48);
     }
 
     @Test
@@ -319,12 +319,12 @@ class GildedRoseTest {
         app.updateQuality();
 
         // Then
-        assertThat(app.items[0]).hasQuality(8);
-        assertThat(app.items[1]).hasQuality(12);
-        assertThat(app.items[2]).hasQuality(8);
-        assertThat(app.items[3]).hasQuality(10); // Quality of Sulfuras never changes
-        assertThat(app.items[4]).hasQuality(0);
-        assertThat(app.items[5]).hasQuality(6);
+        assertThat(items[0]).hasQuality(8);
+        assertThat(items[1]).hasQuality(12);
+        assertThat(items[2]).hasQuality(8);
+        assertThat(items[3]).hasQuality(10); // Quality of Sulfuras never changes
+        assertThat(items[4]).hasQuality(0);
+        assertThat(items[5]).hasQuality(6);
     }
 
     @Test
@@ -344,17 +344,17 @@ class GildedRoseTest {
         app.updateQuality();
 
         // Then
-        assertThat(app.items[0]).hasQuality(0);
-        assertThat(app.items[1]).hasQuality(1);
-        assertThat(app.items[2]).hasQuality(0);
-        assertThat(app.items[3]).hasQuality(-1); // Quality of Sulfuras never changes
-        assertThat(app.items[4]).hasQuality(1);
-        assertThat(app.items[5]).hasQuality(0);
+        assertThat(items[0]).hasQuality(0);
+        assertThat(items[1]).hasQuality(1);
+        assertThat(items[2]).hasQuality(0);
+        assertThat(items[3]).hasQuality(-1); // Quality of Sulfuras never changes
+        assertThat(items[4]).hasQuality(1);
+        assertThat(items[5]).hasQuality(0);
     }
     //endregion
 
     //region SellIn Test
-    
+
     @Test
     void sellInDescreasesByOne() {
         // Given
@@ -372,12 +372,12 @@ class GildedRoseTest {
         app.updateQuality();
 
         // Then
-        assertThat(app.items[0]).hasSellIn(9);
-        assertThat(app.items[1]).hasSellIn(9);
-        assertThat(app.items[2]).hasSellIn(9);
-        assertThat(app.items[3]).hasSellIn(10); // Sulfuras never has to be sold
-        assertThat(app.items[4]).hasSellIn(9);
-        assertThat(app.items[5]).hasSellIn(9);
+        assertThat(items[0]).hasSellIn(9);
+        assertThat(items[1]).hasSellIn(9);
+        assertThat(items[2]).hasSellIn(9);
+        assertThat(items[3]).hasSellIn(10); // Sulfuras never has to be sold
+        assertThat(items[4]).hasSellIn(9);
+        assertThat(items[5]).hasSellIn(9);
     }
 
     //endregion
